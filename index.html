@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>What Should I Do? · Activity Suggester</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="preconnect" href="https://bored-api.appbrewery.com" />
+</head>
+<body>
+  <div class="app">
+    <header class="hero">
+      <h1>What should I do? <span class="wave">🎲</span></h1>
+      <p class="subtitle">Beat boredom with a fresh activity suggestion.</p>
+    </header>
+
+    <main>
+      <section class="controls" aria-label="Activity filters">
+        <div class="field">
+          <label for="type">Type</label>
+          <select id="type">
+            <option value="">Any type</option>
+            <option value="education">Education</option>
+            <option value="recreational">Recreational</option>
+            <option value="social">Social</option>
+            <option value="diy">DIY</option>
+            <option value="charity">Charity</option>
+            <option value="cooking">Cooking</option>
+            <option value="relaxation">Relaxation</option>
+            <option value="music">Music</option>
+            <option value="busywork">Busywork</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="participants">Participants</label>
+          <select id="participants">
+            <option value="">Any number</option>
+            <option value="1">Just me (1)</option>
+            <option value="2">2 people</option>
+            <option value="3">3 people</option>
+            <option value="4">4 people</option>
+            <option value="5">5+ people</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="price">Max price</label>
+          <select id="price">
+            <option value="">Any price</option>
+            <option value="0">Free</option>
+            <option value="0.3">Cheap</option>
+            <option value="0.6">Moderate</option>
+            <option value="1">Any (pricey OK)</option>
+          </select>
+        </div>
+
+        <div class="field checkbox-field">
+          <label class="checkbox">
+            <input type="checkbox" id="kidFriendly" />
+            <span>Kid-friendly only</span>
+          </label>
+        </div>
+      </section>
+
+      <div class="actions">
+        <button id="suggestBtn" class="btn btn-primary">Suggest an activity</button>
+        <button id="randomBtn" class="btn btn-ghost">Surprise me 🎲</button>
+      </div>
+
+      <section id="result" class="result" aria-live="polite"></section>
+    </main>
+
+    <footer class="footer">
+      <p>Activities from the
+        <a href="https://bored-api.appbrewery.com" target="_blank" rel="noopener">Bored API</a>
+        by The App Brewery.</p>
+    </footer>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
