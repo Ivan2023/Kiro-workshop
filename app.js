@@ -1,7 +1,10 @@
 (function () {
   "use strict";
 
-  const API_BASE = "https://bored-api.appbrewery.com";
+  // Calls go to our own server (see server.js), which proxies the Bored API.
+  // This avoids the browser CORS block, since the Bored API sends no
+  // Access-Control-Allow-Origin header and can't be fetched directly from a page.
+  const API_BASE = "/api";
 
   const els = {
     type: document.getElementById("type"),

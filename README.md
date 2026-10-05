@@ -20,22 +20,29 @@ A simple web app that suggests activities to beat boredom, powered by the
 
 ### Tech
 
-Plain HTML, CSS, and vanilla JavaScript — no build step or dependencies.
+Front-end: plain HTML, CSS, and vanilla JavaScript.
+Back-end: a tiny Node server (built-in modules only — no `npm install`).
 
 | File | Purpose |
 |------|---------|
 | `index.html` | Page structure and filter controls |
 | `styles.css` | Styling (responsive, mobile-friendly) |
-| `app.js` | Fetches from the Bored API and renders suggestions |
+| `app.js` | Fetches activities from `/api/*` and renders them |
+| `server.js` | Serves the files and proxies the Bored API |
 
 ### Running it
 
-Open `index.html` directly in a browser, or serve it locally:
+> **Why a server?** The Bored API doesn't send CORS headers, so a browser
+> blocks a page from fetching it directly (you'd see "Failed to fetch").
+> `server.js` serves the front-end and proxies the API from the server side,
+> which avoids CORS entirely. **Requires Node 18+** (for the built-in `fetch`).
 
 ```bash
-python3 -m http.server 8000
-# then visit http://localhost:8000
+node server.js
+# then open http://localhost:3000
 ```
+
+That's it — no dependencies to install.
 
 > Note: Type and Participants are filtered by the API; Max price and
 > Kid-friendly are applied client-side since the API doesn't filter on them.
